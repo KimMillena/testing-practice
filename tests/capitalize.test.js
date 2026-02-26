@@ -1,10 +1,13 @@
 import { capitalize } from "../practice/capitalize";
 
 test("First letter should be capitalized", () => {
-  let testCases = ["helloworld", "love", "hanni"];
+  let testCases = [
+    { input: "helloworld", expected: "Helloworld" },
+    { input: "love", expected: "Love" },
+    { input: "hanni", expected: "Hanni" },
+  ];
 
   testCases.forEach((testCase) => {
-    let expected = testCase.charAt(0).toUpperCase() + testCase.slice(1);
-    expect(capitalize(testCase)).toBe(expected);
+    expect(capitalize(testCase.input)).toBe(testCase.expected);
   });
 });
