@@ -52,33 +52,24 @@ export function caesarCipher(string, shift) {
       // compare if the character is in the alphabet and store the index
       if (convertStrToArray[i] === alphabet[j]) {
         index.push(j);
-        console.log(convertStrToArray[i] + " " + alphabet[j]);
-        console.log(index);
       }
     }
   }
-
-  console.log("converted: ", convertStrToArray);
-  console.log("Orig", originalArr);
 
   // Pointer to track index of letters
   let letterPointer = 0;
 
   for (let i = 0; i < convertStrToArray.length; i++) {
-    console.log("Current Length", convertStrToArray.length);
     let currentChar = convertStrToArray[i];
 
     // Check if the currentChar is in the alphabet
     if (alphabet.includes(currentChar)) {
-      console.log("Includes True");
       let shiftedIndex = (index[letterPointer] + shift) % alphabet.length;
       let shiftedChar = alphabet[shiftedIndex];
 
       // Check original array if current letter at index is uppercase to restore uppercase to current shiftedChar
       if (originalArr[i] === originalArr[i].toUpperCase()) {
-        console.log("Orig arr:", originalArr[i]);
         shiftedChar = shiftedChar.toUpperCase();
-        console.log("Shifted:", shiftedChar);
       }
 
       result += shiftedChar;
